@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>screen -S iPythonSession -p iPython -X stuff  "python -i -c \"import sys; sys.ps1 = ''; sys.ps2 = '';\"
+
+"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Open Screened Python in Existing Screen Session</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>393B07A4-E8CE-4771-ABB8-6FB25A9B926B</string>
+</dict>
+</plist>

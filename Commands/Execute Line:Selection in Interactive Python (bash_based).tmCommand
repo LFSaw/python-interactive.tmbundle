@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>TPY=${TM_PYTHON_INTERACTIVE:=python}
+OPEN=#{
+CLOSE=#}
+
+
+# take either selected text, or current line as input INP
+if [ -n "$TM_SELECTED_TEXT" ]; then
+	INP="$TM_SELECTED_TEXT"
+else
+	INP="$TM_CURRENT_LINE"
+fi
+
+
+
+
+if [ "$TPY" == ipython ]; then
+	screen -S iPythonSession -p iPython -X stuff "$INP
+"
+else
+	screen -S iPythonSession -p iPython -X stuff "$OPEN
+$INP
+$CLOSE
+
+"
+fi
+</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string></string>
+	<key>name</key>
+	<string>Execute Line/Selection in Interactive Python (bash.based)</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.python</string>
+	<key>uuid</key>
+	<string>848C6EAA-4491-4B2C-8A46-8E58EC78C415</string>
+</dict>
+</plist>

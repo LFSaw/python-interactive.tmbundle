@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># use terminal as default; if TM_TERM_PROG is set to iterm, use iterm instead.
+
+# add new tab to running iterm process, or add new terminal window
+# wait a second to let system run that process and 
+# start python interpreter in a screen session.
+# depending on TM_PYTHON_INTERACTIVE, run either python -i or ipython.
+
+
+TP=${TM_TERM_PROG:=Terminal}
+TPY=${TM_PYTHON_INTERACTIVE:=python}
+
+
+if [ "$TP" == iTerm ]; then
+	osascript &lt;&lt;END
+		tell application "iTerm"
+   			activate
+   			set myterm to (the current terminal)
+   			tell myterm
+     			set mysession to (make new session at the end of sessions)
+     				tell mysession
+       					exec command "screen -S iPythonSession -t iPython"
+     				end tell
+   			end tell
+		end tell
+END
+else
+    osascript  &lt;&lt;END2
+        tell application "Terminal"
+            activate
+            do script with command "screen -S iPythonSession -t iPython"
+        end tell
+END2
+fi
+
+
+sleep 1
+
+if [ "$TPY" == ipython ]; then
+	screen -S iPythonSession -p iPython -X stuff  "ipython -i -c \"print 'Welcome to Python Interactive'\"
+"
+else
+	screen -S iPythonSession -p iPython -X stuff  "python -i -c \"import sys; sys.ps1 = ''; sys.ps2 = ''; print 'Welcome to Python Interactive'\"
+
+"
+fi
+
+## suggestion by thomas incorporating temp-file
+# #!/bin/bash
+# 
+# echo "#/bin/bash
+# screen -S iPythonSession -t iPython
+# " &gt; /tmp/TM_launch_ipython.sh
+# 
+# chmod 700 /tmp/TM_launch_ipython.sh
+# open -a Terminal /tmp/TM_launch_ipython.sh
+# sleep 1
+# screen -S iPythonSession -p iPython -X stuff "iPython
+# "
+# 
+# echo "iPython launched!"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Open Terminal with Screened Python</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>90E78D00-6C55-4C19-A6E7-F6038D5E8694</string>
+</dict>
+</plist>

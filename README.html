@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+	"http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- Processed by MultiMarkdown -->
+		<meta name="Affiliation" content="LFSaw.de" />
+		<meta name="Author" content="Till Bovermann" />
+		<meta name="Copyright" content="2009 Till Bovermann.  
+This work is licensed under a Creative Commons License.  
+http://creativecommons.org/licenses/by-sa/2.5/" />
+		<meta name="Date" content="2009-04-17" />
+		<meta name="Format" content="complete" />
+		<meta name="Keywords" content="" />
+		<meta name="Subtitle" content="A python interactive mode for TextMate" />
+		<title>README Python Interactive for TextMate</title>
+		<meta name="XMP" content="CCAttributionShareAlike" />
+	</head>
+<body>
+
+<h1 id="readme">README</h1>
+
+<p>This is the first version of a python interactive mode for TextMate implementing <a href="http://en.wikipedia.org/wiki/REPL">REPL</a>.</p>
+
+<p>Please do not hesitate to contribute.
+Feedback&#8217;s welcome, too, but, unfortunately, I can&#8217;t guarantee that I&#8217;m able to fix bugs (&#8216;cause I&#8217;m new to textmate and screen)</p>
+
+<h2 id="licence">LICENCE</h2>
+
+<!-- Creative Commons License -->
+<a href="http://creativecommons.org/licenses/GPL/2.0/">
+<img alt="CC-GNU GPL" border="0" src="http://creativecommons.org/images/public/cc-GPL-a.png" /></a><br />
+This software is licensed under the <a href="http://creativecommons.org/licenses/GPL/2.0/">CC-GNU GPL</a> version 2.0 or later.
+<!-- /Creative Commons License -->
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+<li><a href="http://macromates.com/">TextMate</a></li>
+<li><a href="http://iterm.sourceforge.net">iTerm</a>
+<ul><li>a bookmark <strong>Screen&#8217;d Python</strong> in iTerm that executes the following cmd:</li>
+<li><code>/usr/bin/env screen -S iPythonSession -t iPython</code></li></ul></li>
+<li>Python installation (of course)</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Double-Click the tmbundle contained in this zip-file, it should automatically install itself (as long as you have textMate installed)</p>
+
+<h2 id="usage">Usage</h2>
+
+<!-- - Open iTerm
+- Create new session by executing the bookmark **Screen'd Python**. -->
+
+<ul>
+<li>call <em>Open Terminal with Screened Python</em>
+<ul><li>A Terminal window should appear saying <em>Welcome to Python Interactive</em></li></ul></li>
+<li><code>enter</code> (<code>fn-return</code>) executes the line or selection in the python screen-session.</li>
+<li>When done with your interactive session, <code>ctrl-d</code> the python process in iTerm and <strong>end the screen session via ctrl-d</strong>. If you don&#8217;t do it that way, it wil be still there (as a detached screen session).</li>
+</ul>
+
+<p>If something goes wrong, it may be caused by an already-running screen session. Look for it via <code>screen -ls</code> and kill it by attaching (<code>screen -r &lt;pid&gt;</code>) and <code>ctrl-d</code>.</p>
+
+<h2 id="customization">Customization</h2>
+
+<p>Support for </p>
+
+<ul>
+<li><code>Terminal.app</code> / <code>iTerm.app</code></li>
+<li><code>python</code> / <code>ipython</code> </li>
+</ul>
+
+<p>Defaults are <code>terminal</code> and <code>python</code>.
+This can be changed by declaring</p>
+
+<ul>
+<li><code>TM_TERM_PROG=iTerm</code> </li>
+<li><code>TM_PYTHON_INTERACTIVE=ipython</code> </li>
+</ul>
+
+<p>in TextMate&#8217;s <em>Advanced Preferences</em>.</p>
+
+<h2 id="knownbugs">Known Bugs</h2>
+
+<p>Still <em>very</em> alpha.</p>
+
+<h2 id="bigthanx">Big Thanx</h2>
+
+<p>Big Thanx go to <a href="http://technotales.wordpress.com">technotales</a> for his <a href="http://technotales.wordpress.com/2007/10/03/like-slime-for-vim/">excellent howto on slime, vim, screen and REPL</a>, 
+Thomas Hermann the initial idea and suggestions on how to automate the screen creation process, and to the <a href="http://supercollider.sf.net">SuperCollider</a> community, which inspired me to look for a way to get python REPL&#8217;y to work in TextMate.</p>
+
+<h2 id="authors">Authors</h2>
+
+<p>so far:</p>
+
+<ul>
+<li>2009, <a href="http://LFSaw.de">LFSaw</a>, (<em>lfsaw at lfsaw dot de</em>)</li>
+</ul>
+
+<h2 id="releasenotes">Release Notes</h2>
+
+<ul>
+<li>Sun Apr 19 12:57:28 CEST 2009
+<ul><li>complete rewrite of screen sesison creation based on thomas&#8217; suggestions</li>
+<li>changed default keyboard shortcut for evaluation of selection to <code>enter</code> (<code>function-return</code>)</li>
+<li>added support for terminal and ipython (defaults are terminal and python, iterm and ipython can be switched on by declaration of TM_TERM_PROG=iTerm resp. TM_PYTHON_INTERACTIVE=ipython in TextMate&#8217;s &#8220;Advanced Preferences&#8221;)</li>
+<li>changed interpret to use bash instead of python (prevents python to misinterpret (single-)quotes)</li></ul></li>
+<li>Fri Apr 17 18:26:34 CEST 2009
+<ul><li>First release</li>
+<li>manual creation of screen session required</li>
+<li>supressing python interactive prompts</li></ul></li>
+</ul>
+
+<h2 id="todos">ToDos</h2>
+
+<ul>
+<li>TODO customize, such that iPython supresses prompts</li>
+</ul>
+</body>
+</html>
