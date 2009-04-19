@@ -26,9 +26,6 @@ Double-Click the tmbundle contained in this zip-file, it should automatically in
 
 ## Usage ##
 
-<!-- - Open iTerm
-- Create new session by executing the bookmark **Screen'd Python**. -->
-
 - call *Open Terminal with Screened Python*
 	- A Terminal window should appear saying *Welcome to Python Interactive*
 - `enter` (`fn-return`) executes the line or selection in the python screen-session.
@@ -82,3 +79,5 @@ so far:
 ## ToDos ##
 
 - TODO customize, such that iPython supresses prompts
+- TODO use custom iTerm layout
+- TODO bookkeeping of open screen sessions
