@@ -1,13 +1,3 @@
-Title:			README Python Interactive for TextMate
-Subtitle:		A python interactive mode for TextMate
-Author:			Till Bovermann
-Affiliation:	LFSaw.de
-Date:			2009-04-17
-Copyright:		2009 Till Bovermann.  
-				This work is licensed under a Creative Commons License.  
-				http://creativecommons.org/licenses/by-sa/2.5/
-Keywords:		
-XMP:			CCAttributionShareAlike
 
 # README #
 
@@ -18,11 +8,9 @@ Feedback's welcome, too, but, unfortunately, I can't guarantee that I'm able to 
 
 ## LICENCE ##
 
-<!-- Creative Commons License -->
 <a href="http://creativecommons.org/licenses/GPL/2.0/">
 <img alt="CC-GNU GPL" border="0" src="http://creativecommons.org/images/public/cc-GPL-a.png" /></a><br />
 This software is licensed under the <a href="http://creativecommons.org/licenses/GPL/2.0/">CC-GNU GPL</a> version 2.0 or later.
-<!-- /Creative Commons License -->
 
 ## Requirements ##
 
