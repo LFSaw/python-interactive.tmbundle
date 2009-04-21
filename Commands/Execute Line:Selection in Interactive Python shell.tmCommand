@@ -24,8 +24,6 @@ except KeyError:
 	<string>line</string>
 	<key>input</key>
 	<string>selection</string>
-	<key>keyEquivalent</key>
-	<string>^$</string>
 	<key>name</key>
 	<string>Execute Line/Selection in Interactive Python shell (python-based)</string>
 	<key>output</key>

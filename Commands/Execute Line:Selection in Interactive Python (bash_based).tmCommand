@@ -5,29 +5,26 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>TPY=${TM_PYTHON_INTERACTIVE:=python}
-OPEN=#{
-CLOSE=#}
+	<string>#TPY=${TM_PYTHON_INTERACTIVE:=python}
+#OPEN=#{
+#CLOSE=#}
+
+# disable globbing, set split char to "\n"
+set -f
+IFS=$'\n'
 
 
-# take either selected text, or current line as input INP
+#take either selected text, or current line as input INP
 if [ -n "$TM_SELECTED_TEXT" ]; then
-	INP="$TM_SELECTED_TEXT"
-else
-	INP="$TM_CURRENT_LINE"
-fi
-
-
-
-
-if [ "$TPY" == ipython ]; then
-	screen -S iPythonSession -p iPython -X stuff "$INP
+	while read INP; do
+		screen -S iPythonSession -p iPython -X stuff "$INP
+"
+	done
+	# extra "\n" needed for proper function evaluation if a function is not followed by "\n"
+	screen -S iPythonSession -p iPython -X stuff "
 "
 else
-	screen -S iPythonSession -p iPython -X stuff "$OPEN
-$INP
-$CLOSE
-
+	screen -S iPythonSession -p iPython -X stuff "$TM_CURRENT_LINE
 "
 fi
 </string>
@@ -44,6 +41,6 @@ fi
 	<key>scope</key>
 	<string>source.python</string>
 	<key>uuid</key>
-	<string>848C6EAA-4491-4B2C-8A46-8E58EC78C415</string>
+	<string>F6AD778A-6312-46AE-958F-C83B72080D9E</string>
 </dict>
 </plist>

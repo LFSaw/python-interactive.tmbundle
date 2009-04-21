@@ -51,7 +51,8 @@ in TextMate's *Advanced Preferences*.
 
 ## Known Bugs ##
 
-Still _very_ alpha.
+- python interactive needs additional  newline behind scopes like function def's or loops, since it relies on the python -i mode.
+- Still _very_ alpha.
 
 ## Big Thanx ##
 
@@ -66,6 +67,10 @@ so far:
 
 ## Release Notes ##
 
+- Tue Apr 21 11:12:05 CEST 2009
+	- Fixed limited length of variables (as reported by thomas) in bash by reading stdin.
+	- Due to this, it is currently not possible to surround input by "#{" "#}" in "python -i" mode.
+	- this bundle needs scripts to have an empty line trailing regular scopes like function def's or loops, since it relies on the python -i mode.
 - Sun Apr 19 12:57:28 CEST 2009
 	- complete rewrite of screen sesison creation based on thomas' suggestions
 	- changed default keyboard shortcut for evaluation of selection to `enter` (`function-return`)
